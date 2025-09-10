@@ -35,7 +35,7 @@ const Sidemenu = () => {
                     <FaPeopleArrows className='w-6 h-6' />
                     <span className='hidden lg:block'>Arkadaşlık istekleri</span>
                 </button>
-                <button className='w-full h-10 rounded-lg flex items-center justify-start gap-2 p-2 text-sm md:text-base lg:text-lg hover:bg-border transition cursor-pointer'>
+                <button onClick={() => router.push('/settings')} className={`w-full h-10 rounded-lg flex items-center justify-start gap-2 p-2 text-sm md:text-base lg:text-lg hover:bg-border transition cursor-pointer ${pathname === '/settings' ? 'bg-border border-l-4 border-foreground' : ''}`}>
                     <IoMdSettings className='w-6 h-6' />
                     <span className='hidden lg:block'>Ayarlar</span>
                 </button>
