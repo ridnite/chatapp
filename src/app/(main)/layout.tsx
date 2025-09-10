@@ -17,7 +17,7 @@ export default function RootLayout({
             <main className="flex-1 h-full flex items-center justify-center">
                 {children}
             </main>
-            <aside className="block w-24 h-full lg:w-64 xl:w-78 p-2 overflow-y-scroll">
+            <aside className="block w-24 h-full lg:w-64 xl:w-78 p-2 scrollbar-none chat-container overflow-y-scroll">
                 <ProfileCard />
                 <Sidemenu />
             </aside>

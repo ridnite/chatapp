@@ -87,3 +87,11 @@
     @apply bg-background text-foreground;
   }
 }
+
+.chat-container {
+  scrollbar-width: none;
+}
+
+.chat-container::-webkit-scrollbar {
+  display: none;
+}
