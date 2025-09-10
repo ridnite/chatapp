@@ -3,13 +3,13 @@ import { cookies } from "next/headers";
 import jwt from "jsonwebtoken";
 import supabase from "@/lib/supabase";
 
-export async function GET(req: Request, { params }: { params: { id: string } }) {
+export async function GET(req: Request, context: { params: Promise<{ id: string }> }) {
     try {
         const token = (await cookies()).get("token")?.value;
         if (!token) return NextResponse.json({ error: "Yetkisiz" }, { status: 401 });
 
         const decoded: any = jwt.verify(token, process.env.JWT_SECRET!);
-        const { id: otherUserId } = await params;
+        const { id: otherUserId } = await context.params;
 
         const { data, error } = await supabase
             .from("messages")

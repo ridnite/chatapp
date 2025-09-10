@@ -11,7 +11,6 @@ export async function GET(request: Request) {
         }
         const decoded: any = jwt.verify(token, process.env.JWT_SECRET!);
         const { data, error } = await supabase.from("friendships").select(`sender_id,receiver_id,sender:users!friendships_sender_id_fkey ( id, name, image )`).eq("status", "accepted").eq("receiver_id", decoded.id);
-        console.log(data, error);
         if (error) {
             return NextResponse.json({ error: "Veri alınamadı" }, { status: 404 });
         }
